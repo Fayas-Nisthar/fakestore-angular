@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {HttpClient} from '@angular/common/http'
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-products',
@@ -10,7 +11,7 @@ export class ProductsComponent {
 
     products:any
 
-    constructor(private http:HttpClient){
-      this.http.get("https://fakestoreapi.com/products/").subscribe(data=>this.products=data)
+    constructor(private service:UserService){
+      this.service.getProducts().subscribe(data=>this.products=data)
     }
 }
